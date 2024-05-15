@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yêu em</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="container">
+    <h2 class="mt-5 mb-5">Tool</h2>
+    <div class="mb-5">
+        <div class="row">
+            <div class="form-group col-md-4 mb-3">
+                <label for="month">Month</label>
+                <select name="month" class="form-control" id="month">
+                    <option value="">Select Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <label for="order-date">Order Date</label>
+                <input type="date" name="order-date" class="form-control" id="order-date">
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <label for="case-open-date">Case Open Date</label>
+                <input type="date" name="case-open-date" class="form-control" id="case-open-date">
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <label for="case-type">Case Type</label>
+                <select name="case-type" class="form-control" id="case-type">
+                    <option value="">Select Case Type</option>
+                    <option value="CLAIM A-Z">CLAIM A-Z</option>
+                    <option value="RETURN">RETURN</option>
+                    <option value="FEEDBACK">FEEDBACK</option>
+                    <option value="MESSAGE">MESSAGE</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <label for="acc">ACC</label>
+                <select name="acc" class="form-control" id="acc">
+                    <option value="">Select ACC</option>
+                    <option value="HO NGOC MINH">HO NGOC MINH</option>
+                    <option value="LE VAN BA">LE VAN BA</option>
+                    <option value="NGUYEN THI CUONG">NGUYEN THI CUONG</option>
+                    <option value="NGUYEN VAN TAN">NGUYEN VAN TAN</option>
+                    <option value="DEAN CURTIS">DEAN CURTIS</option>
+                    <option value="CHIARA CONTI">CHIARA CONTI</option>
+                    <option value="DOMI">DOMI</option>
+                </select>
+            </div>
+            <div class="form-group col-md-12 mb-3">
+                <label for="reason">Reason</label>
+                <textarea name="reason" class="form-control" id="reason" rows="3"></textarea>
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <label for="action">Action</label>
+                <input type="text" name="action" class="form-control" id="action" placeholder="Enter Action">
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <label for="result">Result</label>
+                <input type="text" name="result" class="form-control" id="result" placeholder="Enter Result">
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <label for="refund">Refund</label>
+                <input type="text" name="refund" class="form-control" id="refund" placeholder="Enter Refund">
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <label for="status">Status</label>
+                <input type="text" name="status" class="form-control" id="status" placeholder="Enter Status">
+            </div>
+            <div class="col-lg-12 mt-5">
+                <button id="add-button" class="btn btn-success" onclick="addData()">Add Case</button>
+                <button id="update-button" class="btn btn-primary" onclick="updateData()">Update</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="col-12">
+        <table class="table table-bordered" id="data-table">
+            <thead>
+            <tr>
+                <th>Month</th>
+                <th>Order Date</th>
+                <th>Case Open Date</th>
+                <th>Case Type</th>
+                <th>ACC</th>
+                <th>Reason</th>
+                <th>Action</th>
+                <th>Result</th>
+                <th>Refund</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+</div>
+<div class="container">
+    <h2 class="mt-5 mb-5">Bộ lọc</h2>
+    <!-- Form for adding new data -->
+    <div class="mb-5">
+        <div class="form-group col-md-4 mb-3">
+            <label for="filter-acc">Filter by ACC</label>
+            <select name="filter-acc" class="form-control" id="filter-acc">
+                <option value="">Select ACC</option>
+                <option value="HO NGOC MINH">HO NGOC MINH</option>
+                <option value="LE VAN BA">LE VAN BA</option>
+                <option value="NGUYEN THI CUONG">NGUYEN THI CUONG</option>
+                <option value="NGUYEN VAN TAN">NGUYEN VAN TAN</option>
+                <option value="DEAN CURTIS">DEAN CURTIS</option>
+                <option value="CHIARA CONTI">CHIARA CONTI</option>
+                <option value="DOMI">DOMI</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4 mb-3">
+            <button id="filter-button" class="btn btn-primary mt-4">Filter</button>
+            <button id="reset-button" class="btn btn-secondary mt-4 ml-2">Reset</button>
+        </div>
+    </div>
+    <!-- Table for displaying data -->
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Filter Results</h3>
+            <table class="table table-bordered" id="filter-table">
+                <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Order Date</th>
+                    <th>Case Open Date</th>
+                    <th>Case Type</th>
+                    <th>ACC</th>
+                    <th>Reason</th>
+                    <th>Action</th>
+                    <th>Result</th>
+                    <th>Refund</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody id="filter-table-body">
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <h2 class="mt-5 mb-5">Filter by Month</h2>
+            <div class="row">
+                <div class="form-group col-md-4 mb-3">
+                    <label for="filter-month">Filter by Month</label>
+                    <select name="filter-month" class="form-control" id="filter-month">
+                        <option value="">Select Month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                    <button id="filter-month-button" class="btn btn-primary mt-4">Filter</button>
+                    <button id="reset-month-button" class="btn btn-secondary mt-4 ml-2">Reset</button>
+                </div>
+            </div>
+            <div class="col-12">
+                <table class="table table-bordered" id="filtered-result-table">
+                    <thead>
+                    <!-- Table headers -->
+                    <!-- Replace the placeholders with your existing table headers -->
+                    <tr>
+                        <th>Month</th>
+                        <th>Order Date</th>
+                        <th>Case Open Date</th>
+                        <th>Case Type</th>
+                        <th>ACC</th>
+                        <th>Reason</th>
+                        <th>Action</th>
+                        <th>Result</th>
+                        <th>Refund</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody id="filtered-result-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="./script.js"></script>
+</body>
+
+</html>
