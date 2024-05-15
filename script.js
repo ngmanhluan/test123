@@ -1,5 +1,15 @@
 // Function to validate form inputs
+function validateForm() {
+    var month = document.getElementById("month").value;
+    var orderDate = document.getElementById("order-date").value;
+    var caseOpenDate = document.getElementById("case-open-date").value;
+    var caseType = document.getElementById("case-type").value;
+    var acc = document.getElementById("acc").value;
+    var reason = document.getElementById("reason").value;
 
+    
+    return true;
+}
 // Function to add data to localStorage
 function addData() {
     if (validateForm()) {
