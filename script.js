@@ -4,6 +4,7 @@ function validateForm() {
     var orderDate = document.getElementById("order-date").value;
     var caseOpenDate = document.getElementById("case-open-date").value;
     var caseType = document.getElementById("case-type").value;
+    var orderId = document.getElementById("order-id").value;
     var acc = document.getElementById("acc").value;
     var reason = document.getElementById("reason").value;
 
@@ -17,6 +18,7 @@ function addData() {
         var orderDate = document.getElementById("order-date").value;
         var caseOpenDate = document.getElementById("case-open-date").value;
         var caseType = document.getElementById("case-type").value;
+        var orderId = document.getElementById("order-id").value;
         var acc = document.getElementById("acc").value;
         var reason = document.getElementById("reason").value;
         var action = document.getElementById("action").value;
@@ -29,6 +31,7 @@ function addData() {
             orderDate: orderDate,
             caseOpenDate: caseOpenDate,
             caseType: caseType,
+            orderId: orderId,
             acc: acc,
             reason: reason,
             action: action,
@@ -62,6 +65,7 @@ function showData() {
             <td>${data.orderDate}</td>
             <td>${data.caseOpenDate}</td>
             <td>${data.caseType}</td>
+            <td>${data.orderId}</td>
             <td>${data.acc}</td>
             <td>${data.reason}</td>
             <td>${data.action}</td>
@@ -83,6 +87,7 @@ function clearForm() {
     document.getElementById("order-date").value = "";
     document.getElementById("case-open-date").value = "";
     document.getElementById("case-type").value = "";
+    document.getElementById("order-id").value = "";
     document.getElementById("acc").value = "";
     document.getElementById("reason").value = "";
     document.getElementById("action").value = "";
@@ -100,6 +105,7 @@ function editData(index) {
     document.getElementById("order-date").value = data.orderDate;
     document.getElementById("case-open-date").value = data.caseOpenDate;
     document.getElementById("case-type").value = data.caseType;
+    document.getElementById("order-id").value = data.orderId;
     document.getElementById("acc").value = data.acc;
     document.getElementById("reason").value = data.reason;
     document.getElementById("action").value = data.action;
@@ -121,6 +127,7 @@ function updateData() {
     var orderDate = document.getElementById("order-date").value;
     var caseOpenDate = document.getElementById("case-open-date").value;
     var caseType = document.getElementById("case-type").value;
+    var orderId = document.getElementById("order-id").value;
     var acc = document.getElementById("acc").value;
     var reason = document.getElementById("reason").value;
     var action = document.getElementById("action").value;
@@ -136,6 +143,7 @@ function updateData() {
         orderDate: orderDate,
         caseOpenDate: caseOpenDate,
         caseType: caseType,
+        orderId: orderId,
         acc: acc,
         reason: reason,
         action: action,
@@ -191,6 +199,7 @@ function displayFilteredData(filteredData) {
             <td>${data.orderDate}</td>
             <td>${data.caseOpenDate}</td>
             <td>${data.caseType}</td>
+            <td>${data.orderId}</td>
             <td>${data.acc}</td>
             <td>${data.reason}</td>
             <td>${data.action}</td>
@@ -254,6 +263,7 @@ function displayFilteredResults(filteredData) {
             <td>${data.orderDate}</td>
             <td>${data.caseOpenDate}</td>
             <td>${data.caseType}</td>
+            <td>${data.orderId}</td>
             <td>${data.acc}</td>
             <td>${data.reason}</td>
             <td>${data.action}</td>
