@@ -210,7 +210,7 @@ function displayFilteredData(filteredData) {
         tableBody.appendChild(row);
     });
 }
-
+//dòng này là để nói yêu em
 // Function to reset filter
 function resetFilter() {
     document.getElementById("filter-acc").value = "";
